@@ -1,6 +1,32 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
+  var fetchLinks = function(callback) {
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    })
+    .then(function(resp){
+      console.log("response: ",resp.data);
+      callback(resp.data);
+    });
+  };
+
+  var saveLink = function(link, callback) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: link
+    })
+    .then(function(resp) {
+      callback(resp);
+    });
+  };
+
+  return {
+    fetchLinks: fetchLinks,
+    saveLink: saveLink
+  }
   // Your code here
 })
 .factory('Auth', function ($http, $location, $window) {

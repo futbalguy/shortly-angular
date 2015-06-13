@@ -1,5 +1,14 @@
-<div id='container'>
+<div id='container' ng-controller="ShortenController">
 <!-- Your code here -->
+
+  <h1>Hello shorten</h1>
+  <ul class="navigation">
+    <li><a href="" ng-click="goToAllLinks()" class="navigation">All Links</a></li>
+  </ul>
+  <form name="shortenForm" ng-submit='addLink()'>
+    <input type='text'ng-model='link.url'>
+    <button>Submit URL</button>
+  </form>
 
 </div>
 

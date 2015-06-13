@@ -1,5 +1,13 @@
-<div id='container' ng-controller='LinksController' ng-init="getLinks()">
+<div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
-  <h1>Hello</h1>
-
+  <h1>Here Are Your Links</h1>
+  <ul class="navigation">
+  <li><a href="" ng-click="goToShorten()" class="navigation">Shorten</a></li>
+  <li><a href={{location.path("")}} class="navigation">Log Out</a></li>
+  </ul>
+  <button ng-click="goToShorten()">Shorten A URL</button>
+  <hr>
+  <ul>
+    <li ng-repeat="link in links" ng-click="">{{link}}</li>
+  </ul>
 </div>

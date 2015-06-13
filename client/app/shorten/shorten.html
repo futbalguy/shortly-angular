@@ -1,7 +1,7 @@
 <div id='container' ng-controller="ShortenController">
 <!-- Your code here -->
-
-  <h1>Hello shorten</h1>
+  <h1>Shorteners</h1>
+<div>
   <ul class="navigation">
     <li><a ng-href="#/{{linkPath}}" class="navigation">All Links</a></li>
     <li><a ng-href="#/shorten" class="navigation">Shorten</a></li>
@@ -12,7 +12,14 @@
     <input type='text'ng-model='link.url'></input>
     <button>Submit URL</button>
   </form>
-
+</div>
+<div class='link' ng-repeat="link in data.links">
+    <img src='./assets/redirect_icon.png'/>
+    <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+    <div class='title'>{{link.title}}</div>
+    <div class='original'>{{link.url}}</div>
+    <a href='{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
+  </div>
 </div>
 
 

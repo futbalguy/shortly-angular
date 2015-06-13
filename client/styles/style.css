@@ -105,11 +105,11 @@ input {
   margin-bottom: 5px;
 }
 
-input[type=url] {
+input[type=text] {
   display: inline
 }
 
-input[type=url]:focus {
+input[type=text]:focus {
   outline: none;
 }
 

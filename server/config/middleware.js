@@ -14,6 +14,15 @@ module.exports = function (app, express) {
   app.use(express.static(__dirname + '/../../client'));
 
 
+  app.use('/', function (req, res, next){
+    if (req.url.length === 6) {
+      console.log("At the root path" + req.url);
+      linkRouter(req,res,next);
+    }
+    else {
+      next();
+    }
+  });
 
   app.use('/api/users', userRouter); // use user router for all user request
 

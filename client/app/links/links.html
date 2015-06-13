@@ -10,8 +10,8 @@
   <div>
     <form name="searchForm" ng-submit='filterLink()'>
 
-    <input type='text' ng-model='searchUrl' ng-change=""></input>
-    <button>Search</button>
+    <input type='text' ng-model='searchUrl' ng-change="" placeholder="filter"></input>
+    <!-- <button>Filter</button> -->
   </form>
   </div>
   <div class='link' ng-repeat="link in data.links | orderBy: 'visits' : true | filter: searchUrl">
@@ -19,5 +19,5 @@
     <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
     <div class='title'>{{link.title}}</div>
     <div class='original'>{{link.url}}</div>
-    <a href='{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
+    <a href='{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
 </div>

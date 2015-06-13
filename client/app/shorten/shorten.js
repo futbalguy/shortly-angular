@@ -5,9 +5,13 @@ angular.module('shortly.shorten', [])
   $scope.link = {};
   $scope.data = {};
   $scope.data.links = [];
+  $scope.loading = false;
+
   $scope.addLink = function() {
+    $scope.loading=true;
     Links.saveLink($scope.link, function(resp) {
       // $location.path('#/');
+      $scope.loading=false;
       $scope.link.url = "";
       $scope.data.links.push(resp.data);
     });

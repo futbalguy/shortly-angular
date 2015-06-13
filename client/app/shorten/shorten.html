@@ -8,9 +8,9 @@
     <li><a ng-href="#/signout" class="navigation">Log Out</a></li>
   </ul>
   <form name="shortenForm" ng-submit='addLink()'>
-
-    <input type='text' ng-style="myStyle" ng-model='link.url' ng-change="myStyle = isValidUrl( link.url ) ? { 'border-color': 'none' } : { 'border-color': 'red' };" required></input>
-    <button ng-disabled="!isValidUrl( link.url)">Submit URL</button>
+    <input type='text' ng-style="myStyle" ng-model='link.url' ng-change="myStyle = isValidUrl( link.url ) ? { 'background-color': 'none' } : { 'background-color': 'pink' };" required placeholder="Type in a URL"></input>
+    <button ng-disabled="!isValidUrl( link.url)">Submit</button>
+    <img class="spinner" src='/assets/spiffygif_46x46.gif' ng-hide="!loading"/>
   </form>
 </div>
 <div class='link' ng-repeat="link in data.links">

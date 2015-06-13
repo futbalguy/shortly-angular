@@ -1,5 +1,4 @@
 angular.module('shortly.services', [])
-
 .factory('Links', function ($http) {
   var fetchLinks = function(callback) {
     return $http({

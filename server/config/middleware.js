@@ -16,7 +16,6 @@ module.exports = function (app, express) {
 
   app.use('/', function (req, res, next){
     if (req.url.length === 6) {
-      console.log("At the root path" + req.url);
       linkRouter(req,res,next);
     }
     else {

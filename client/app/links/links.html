@@ -14,7 +14,7 @@
     <!-- <button>Filter</button> -->
   </form>
   </div>
-  <div class='link' ng-repeat="link in data.links | orderBy: 'visits' : true | filter: searchUrl">
+  <div class='link' ng-repeat="link in data.links | filter: searchUrl | orderBy: 'visits' : true">
     <img src='./assets/redirect_icon.png'/>
     <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
     <div class='title'>{{link.title}}</div>

@@ -7,7 +7,6 @@ angular.module('shortly.services', [])
       url: '/api/links'
     })
     .then(function(resp){
-      console.log("response: ",resp.data);
       callback(resp.data);
     });
   };
@@ -19,7 +18,7 @@ angular.module('shortly.services', [])
       data: link
     })
     .then(function(resp) {
-      callback(resp);
+      callback();
     });
   };
 

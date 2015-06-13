@@ -2,19 +2,17 @@
   <!-- Your html here -->
   <h1>Here Are Your Links</h1>
   <ul class="navigation">
+  <li><a ng-href="#/links" class="navigation">All Links</a></li>
   <li><a ng-href="#/{{shortenPath}}" class="navigation">Shorten</a></li>
-  <li><a href="#/signout" class="navigation">Log Out</a></li>
+  <li><a href="#/signout" class="navigation" ng-click="signOut()">Log Out</a></li>
   </ul>
   <!-- <button ng-click="goToShorten()">Shorten A URL</button> -->
   <hr>
-  <ul>
   <div class='link' ng-repeat="link in data.links" ng-click="goToLink($index)">
     <img src='./assets/redirect_icon.png'/>
     <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
     <div class='title'>{{link.title}}</div>
     <div class='original'>{{link.url}}</div>
-    <a href='{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
+    <a href='{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
   </div>
-    <!-- <li class="link" ng-repeat="link in data.links" ng-click="">{{link}}</li> -->
-  </ul>
 </div>

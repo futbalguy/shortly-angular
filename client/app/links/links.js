@@ -1,6 +1,6 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, $location, Links) {
+.controller('LinksController', function ($scope, $location, Links, Auth) {
   // Your code here
   $scope.data = {};
   $scope.shortenPath = "shorten";
@@ -11,14 +11,14 @@ angular.module('shortly.links', [])
   };
   $scope.getLinks();
 
-  $scope.goToShorten = function() {
-    $location.path('/shorten');
-  };
-
   $scope.goToLink = function(index) {
-    Links.goToLink($scope.data.links[index],function(data) {
-      console.log(data)
+    Links.goToLink($scope.data.links[index],function(resp) {
+      console.log(resp);
     });
   };
+
+  $scope.signOut = function(){
+    Auth.signout();
+  }
 
 });

@@ -8,7 +8,6 @@ module.exports = {
     var findLink = Q.nbind(Link.findOne, Link);
     findLink({code: code})
       .then(function (link) {
-        console.log('link: '+link);
         if (link) {
           req.navLink = link;
           next();
@@ -35,7 +34,7 @@ module.exports = {
 
   newLink: function (req, res, next) {
     var url = req.body.url;
-    console.log(req.body);
+    // console.log(req.body);
     if (!util.isValidUrl(url)) {
       return next(new Error('Not a valid url'));
     }

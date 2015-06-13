@@ -5,6 +5,8 @@ angular.module('shortly.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
+  $scope.signInMessage = "";
+  $scope.signUpMessage = "";
 
   $scope.signin = function () {
     Auth.signin($scope.user)
@@ -13,7 +15,9 @@ angular.module('shortly.auth', [])
         $location.path('/links');
       })
       .catch(function (error) {
+        console.log(error);
         console.error(error);
+        $scope.signInMessage = error.data.error;
       });
   };
 
@@ -24,7 +28,9 @@ angular.module('shortly.auth', [])
         $location.path('/links');
       })
       .catch(function (error) {
+        console.log(error);
         console.error(error);
+        $scope.signUpMessage = error.data.error;
       });
   };
 });

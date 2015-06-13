@@ -7,5 +7,4 @@
   </form>
   <a href="#/signin">Already have an account? <strong>Sign In</strong> ...</a>
 </div>
-<div ng-model="message">{{messages}}
-</div>
+<div ng-class="(signUpMessage.length > 0) ? 'error' : '' " ng-model="signUpMessage">{{signUpMessage}}</div>

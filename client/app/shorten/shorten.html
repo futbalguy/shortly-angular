@@ -1,6 +1,6 @@
 <div id='container' ng-controller="ShortenController">
 <!-- Your code here -->
-  <h1>Shorteners</h1>
+<h1>Shorteners</h1>
 <div>
   <ul class="navigation">
     <li><a ng-href="#/{{linkPath}}" class="navigation">All Links</a></li>
@@ -9,8 +9,8 @@
   </ul>
   <form name="shortenForm" ng-submit='addLink()'>
 
-    <input type='text'ng-model='link.url'></input>
-    <button>Submit URL</button>
+    <input type='text' ng-style="myStyle" ng-model='link.url' ng-change="myStyle = isValidUrl( link.url ) ? { 'border-color': 'none' } : { 'border-color': 'red' };" required></input>
+    <button ng-disabled="!isValidUrl( link.url)">Submit URL</button>
   </form>
 </div>
 <div class='link' ng-repeat="link in data.links">
@@ -19,7 +19,6 @@
     <div class='title'>{{link.title}}</div>
     <div class='original'>{{link.url}}</div>
     <a href='{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
-  </div>
 </div>
 
 

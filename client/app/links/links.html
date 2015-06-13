@@ -6,13 +6,18 @@
   <li><a ng-href="#/{{shortenPath}}" class="navigation">Shorten</a></li>
   <li><a href="#/signout" class="navigation" ng-click="signOut()">Log Out</a></li>
   </ul>
-  <!-- <button ng-click="goToShorten()">Shorten A URL</button> -->
   <hr>
-  <div class='link' ng-repeat="link in data.links" ng-click="goToLink($index)">
+  <div>
+    <form name="searchForm" ng-submit='filterLink()'>
+
+    <input type='text' ng-model='searchUrl' ng-change=""></input>
+    <button>Search</button>
+  </form>
+  </div>
+  <div class='link' ng-repeat="link in data.links | orderBy: 'visits' : true | filter: searchUrl">
     <img src='./assets/redirect_icon.png'/>
     <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
     <div class='title'>{{link.title}}</div>
     <div class='original'>{{link.url}}</div>
     <a href='{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/api/links/{{link.code}}</a>
-  </div>
 </div>

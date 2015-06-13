@@ -17,7 +17,7 @@ angular.module('shortly.services', [])
       data: link
     })
     .then(function(resp) {
-      callback();
+      callback(resp);
     });
   };
 

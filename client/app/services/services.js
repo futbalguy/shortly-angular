@@ -23,10 +23,21 @@ angular.module('shortly.services', [])
     });
   };
 
+  var goToLink = function(link, callback) {
+    return $http({
+      method: 'GET',
+      url: '/api/links/' + link.code
+    })
+    .then(function(resp) {
+      callback(resp);
+    });
+  };
+
   return {
     fetchLinks: fetchLinks,
-    saveLink: saveLink
-  }
+    saveLink: saveLink,
+    goToLink: goToLink
+  };
   // Your code here
 })
 .factory('Auth', function ($http, $location, $window) {

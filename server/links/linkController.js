@@ -8,6 +8,7 @@ module.exports = {
     var findLink = Q.nbind(Link.findOne, Link);
     findLink({code: code})
       .then(function (link) {
+        console.log('link: '+link);
         if (link) {
           req.navLink = link;
           next();
@@ -25,7 +26,6 @@ module.exports = {
 
   findAll({})
     .then(function (links) {
-      // console.log("sending links back");
       res.json(links);
     })
     .fail(function (error) {

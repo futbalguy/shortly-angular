@@ -3,10 +3,12 @@
 
   <h1>Hello shorten</h1>
   <ul class="navigation">
-    <li><a href="" ng-click="goToAllLinks()" class="navigation">All Links</a></li>
+    <li><a ng-href="#/{{linkPath}}" class="navigation">All Links</a></li>
+    <li><a ng-href="#/signout" class="navigation">Log Out</a></li>
   </ul>
   <form name="shortenForm" ng-submit='addLink()'>
-    <input type='text'ng-model='link.url'>
+
+    <input type='text'ng-model='link.url'></input>
     <button>Submit URL</button>
   </form>
 
